@@ -25,13 +25,13 @@ defmodule EvalEx do
     version: version,
     targets: targets
 
-  @type evalex_any :: number() | boolean() | String.t() | list(evalex_any) | nil
+  @type evalex_any :: number() | boolean() | String.t() | nil | [evalex_any()]
 
   @doc """
   Evaluates the given expression and returns the result.
   """
   @doc since: "0.1.0"
-  @spec eval(String.t(), map()) :: {:ok, evalex_any} | {:error, {atom(), String.t()}}
+  @spec eval(String.t(), map()) :: {:ok, evalex_any()} | {:error, {atom(), String.t()}}
   def eval(_, _) do
     :erlang.nif_error(:nif_not_loaded)
   end
