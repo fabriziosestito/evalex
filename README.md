@@ -1,11 +1,10 @@
 # EvalEx
 
-**TODO: Add description**
+EvalEx is a powerful expression evaluation library for Elixir, based on [evalexpr]() using [rustler]().
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `evalex` to your list of dependencies in `mix.exs`:
+Add `:evalex` to the list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -15,16 +14,18 @@ def deps do
 end
 ```
 
-## Conversion table
+## Type conversion table
 
-| Elixir    | EvalEx  |
-| --------- | ------- |
-| integer() | Integer |
-| float()   | Float   |
-| bool()    | Boolean |
-| bool()    | Boolean |
-| bool()    | Boolean |
-| bool()    | Boolean |
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/evalex>.
+| Elixir     | EvalEx                |
+| ---------- | --------------------- |
+| integer()  | Int                   |
+| float()    | Float                 |
+| bool()     | Boolean               |
+| String.t() | String                |
+| list()     | Tuple                 |
+| tuple()    | Tuple                 |
+| nil()      | Empty                 |
+| pid()      | Empty (not supported) |
+| ref()      | Empty (not supported) |
+| fun()      | Empty (not supported) |
+| map()      | Empty (not supported) |
