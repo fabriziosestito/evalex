@@ -19,7 +19,8 @@ defmodule EvalEx.MixProject do
 
   defp deps do
     [
-      {:rustler, "~> 0.25.0"}
+      {:rustler, "~> 0.25.0"},
+      {:rustler_precompiled, "~> 0.5.1"}
     ]
   end
 end
