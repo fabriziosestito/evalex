@@ -1,5 +1,7 @@
 # EvalEx
 
+[![CI](https://github.com/fabriziosestito/evalex/actions/workflows/main.yml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/main.yml)
+
 EvalEx is a powerful expression evaluation library for Elixir, based on [evalexpr]() using [rustler]().
 
 ## Installation
@@ -14,7 +16,17 @@ def deps do
 end
 ```
 
+## About
+
+## License
+
+This library is licensed under Apache 2.0 License. See [LICENSE](LICENSE) for details.
+
+## Usage
+
 ## Type conversion table
+
+Elixir Types are converted to EvalEx types (and back) as follows:
 
 | Elixir     | EvalEx                |
 | ---------- | --------------------- |
@@ -29,3 +41,16 @@ end
 | ref()      | Empty (not supported) |
 | fun()      | Empty (not supported) |
 | map()      | Empty (not supported) |
+
+## Rustler precompiled
+
+EvalEx uses [RustlerPrecompiled](https://github.com/philss/rustler_precompiled) and ships with the following precompiled architectures:
+
+so there is no need to install the Rust toolchain to use it in your project as a dependency
+In case
+
+## Links
+
+- [evalexpr](https://github.com/ISibboI/evalexpr) The Rust crate doing most of the work.
+- [RustlerPrecompiled](https://github.com/philss/rustler_precompiled) Use precompiled NIFs from trusted sources in your Elixir code.
+- [NimbleLZ4](https://github.com/whatyouhide/nimble_lz4) Major inspiration for the RustlerPrecompiled GitHub actions workflow and general setup.
