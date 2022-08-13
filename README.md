@@ -4,12 +4,13 @@
 [![Rust CI](https://github.com/fabriziosestito/evalex/actions/workflows/rust-ci.yaml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/rust-ci.yaml)
 [![NIFs precompilation](https://github.com/fabriziosestito/evalex/actions/workflows/release.yaml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/release.yaml)
 --
-EvalEx is a powerful expression evaluation library for Elixir, based on [evalexpr]() using [rustler]().
+EvalEx is a powerful expression evaluation library for Elixir, based on [evalexpr](https://github.com/ISibboI/evalexpr) using [rustler](https://github.com/rusterlium/rustler).
 
 ## About
 
-EvalEx evaluates expressions in Elixir, leveraging the [evalexpr]() crate tiny scripting language.
-Please refer to the [evalexpr documentation]() for extended information about the language.
+EvalEx evaluates expressions in Elixir, leveraging the [evalexpr](https://github.com/ISibboI/evalexpr) crate tiny scripting language.
+
+Please refer to the [evalexpr documentation](https://docs.rs/evalexpr/latest/evalexpr/index.html) for extended information about the language.
 
 ## Installation
 
@@ -24,6 +25,28 @@ end
 ```
 
 ## Usage
+
+```elixir
+iex> EvalEx.eval("1 + 1")
+{:ok, 2}
+
+iex> EvalEx.eval("a * b", %{"a" => 10, "b" => 10})
+{:ok, 100}
+
+iex> EvalEx.eval("a == b", %{"a" => "tonio", "b" => "wanda"})
+{:ok, false}
+
+iex> EvalEx.eval("a == b", %{"a" => "tonio", "b" => "wanda"})
+{:ok, false}
+
+iex> EvalEx.eval("len(a)", %{"a" => [1, 2, 3]})
+{:ok, 3}
+
+iex> EvalEx.eval("a + b", %{"a" => 10})
+{:error,
+ {:variable_identifier_not_found,
+  "Variable identifier is not bound to anything by context: \"b\"."}}
+```
 
 ## Type conversion table
 
@@ -45,10 +68,10 @@ Elixir Types are converted to EvalEx types (and back) as follows:
 
 ## Rustler precompiled
 
-EvalEx uses [RustlerPrecompiled](https://github.com/philss/rustler_precompiled) and ships with the following precompiled architectures:
-
-so there is no need to install the Rust toolchain to use it in your project as a dependency
-In case
+By default, **you don't need the Rust toolchain installed** because the lib will try to download
+a precompiled NIF file.
+In case you want to force compilation set the
+`EVALEX_FORCE_BUILD` environment variable to `true` or `1`.
 
 ## License
 
@@ -56,6 +79,6 @@ This library is licensed under Apache 2.0 License. See [LICENSE](LICENSE) for de
 
 ## Links
 
-- [evalexpr](https://github.com/ISibboI/evalexpr) The Rust crate doing most of the work.
+- [evalexpr](https://github.com/ISibboI/evalexpr) The Rust crate doing most of the dirty work.
 - [RustlerPrecompiled](https://github.com/philss/rustler_precompiled) Use precompiled NIFs from trusted sources in your Elixir code.
 - [NimbleLZ4](https://github.com/whatyouhide/nimble_lz4) Major inspiration for the RustlerPrecompiled GitHub actions workflow and general setup.
