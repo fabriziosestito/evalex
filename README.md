@@ -3,6 +3,7 @@
 [![CI](https://github.com/fabriziosestito/evalex/actions/workflows/main.yaml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/main.yaml)
 [![Rust CI](https://github.com/fabriziosestito/evalex/actions/workflows/rust-ci.yaml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/rust-ci.yaml)
 [![NIFs precompilation](https://github.com/fabriziosestito/evalex/actions/workflows/release.yaml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/release.yaml)
+[![Hex.pm](https://img.shields.io/hexpm/v/evalex.svg)](https://hex.pm/packages/evalex)
 --
 EvalEx is a powerful expression evaluation library for Elixir, based on [evalexpr](https://github.com/ISibboI/evalexpr) using [rustler](https://github.com/rusterlium/rustler).
 
