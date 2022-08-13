@@ -4,7 +4,10 @@
 [![Rust CI](https://github.com/fabriziosestito/evalex/actions/workflows/rust-ci.yaml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/rust-ci.yaml)
 [![NIFs precompilation](https://github.com/fabriziosestito/evalex/actions/workflows/release.yaml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/release.yaml)
 [![Hex.pm](https://img.shields.io/hexpm/v/evalex.svg)](https://hex.pm/packages/evalex)
---
+[![Hex Docs](https://img.shields.io/badge/hex-docs-purple.svg)](https://hexdocs.pm/evalex/)
+
+---
+
 EvalEx is a powerful expression evaluation library for Elixir, based on [evalexpr](https://github.com/ISibboI/evalexpr) using [rustler](https://github.com/rusterlium/rustler).
 
 ## About
@@ -37,8 +40,8 @@ iex> EvalEx.eval("a * b", %{"a" => 10, "b" => 10})
 iex> EvalEx.eval("a == b", %{"a" => "tonio", "b" => "wanda"})
 {:ok, false}
 
-iex> EvalEx.eval("a == b", %{"a" => "tonio", "b" => "wanda"})
-{:ok, false}
+iex> EvalEx.eval("a != b", %{"a" => "tonio", "b" => "wanda"})
+{:ok, true}
 
 iex> EvalEx.eval("len(a)", %{"a" => [1, 2, 3]})
 {:ok, 3}
