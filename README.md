@@ -48,6 +48,10 @@ iex> EvalEx.eval("a + b", %{"a" => 10})
   "Variable identifier is not bound to anything by context: \"b\"."}}
 ```
 
+### Precompile expressions
+
+T.B.D.
+
 ## Type conversion table
 
 Elixir Types are converted to EvalEx types (and back) as follows:
@@ -72,6 +76,18 @@ By default, **you don't need the Rust toolchain installed** because the lib will
 a precompiled NIF file.
 In case you want to force compilation set the
 `EVALEX_FORCE_BUILD` environment variable to `true` or `1`.
+
+Precompiled NIFs are available for the following platforms:
+
+- aarch64-apple-darwin
+- x86_64-apple-darwin
+- x86_64-unknown-linux-gnu
+- x86_64-unknown-linux-musl
+- arm-unknown-linux-gnueabihf
+- aarch64-unknown-linux-gnu
+- aarch64-unknown-linux-musl
+- x86_64-pc-windows-msvc
+- x86_64-pc-windows-gnu
 
 ## License
 
