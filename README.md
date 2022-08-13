@@ -1,8 +1,15 @@
 # EvalEx
 
-[![CI](https://github.com/fabriziosestito/evalex/actions/workflows/main.yml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/main.yml)
-
+[![CI](https://github.com/fabriziosestito/evalex/actions/workflows/main.yaml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/main.yaml)
+[![Rust CI](https://github.com/fabriziosestito/evalex/actions/workflows/rust-ci.yaml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/rust-ci.yaml)
+[![NIFs precompilation](https://github.com/fabriziosestito/evalex/actions/workflows/release.yaml/badge.svg)](https://github.com/fabriziosestito/evalex/actions/workflows/release.yaml)
+--
 EvalEx is a powerful expression evaluation library for Elixir, based on [evalexpr]() using [rustler]().
+
+## About
+
+EvalEx evaluates expressions in Elixir, leveraging the [evalexpr]() crate tiny scripting language.
+Please refer to the [evalexpr documentation]() for extended information about the language.
 
 ## Installation
 
@@ -15,8 +22,6 @@ def deps do
   ]
 end
 ```
-
-## About
 
 ## License
 
