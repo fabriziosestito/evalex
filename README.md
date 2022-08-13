@@ -23,10 +23,6 @@ def deps do
 end
 ```
 
-## License
-
-This library is licensed under Apache 2.0 License. See [LICENSE](LICENSE) for details.
-
 ## Usage
 
 ## Type conversion table
@@ -53,6 +49,10 @@ EvalEx uses [RustlerPrecompiled](https://github.com/philss/rustler_precompiled) 
 
 so there is no need to install the Rust toolchain to use it in your project as a dependency
 In case
+
+## License
+
+This library is licensed under Apache 2.0 License. See [LICENSE](LICENSE) for details.
 
 ## Links
 
