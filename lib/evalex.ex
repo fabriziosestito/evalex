@@ -66,6 +66,26 @@ defmodule EvalEx do
       "Variable identifier is not bound to anything by context: \"b\"."}}
   """
   @doc since: "0.1.0"
-  @spec eval(String.t(), map()) :: {:ok, evalex_any()} | {:error, {evalex_error(), String.t()}}
-  def eval(expression, %{} = context \\ %{}), do: EvalEx.Native.eval(expression, context)
+  @spec eval(String.t() | EvalEx.PrecompiledExpression.t(), map()) ::
+          {:ok, evalex_any()} | {:error, {evalex_error(), String.t()}}
+  def eval(expression, context \\ %{})
+
+  def eval(%EvalEx.PrecompiledExpression{resource: resource}, %{} = context),
+    do: EvalEx.Native.eval_precompiled_expression(resource, context)
+
+  def eval(expression, context) when is_binary(expression),
+    do: EvalEx.Native.eval(expression, %{} = context)
+
+  @doc since: "0.1.1"
+  @spec precompile_expression(String.t()) ::
+          {:ok, EvalEx.PrecompiledExpression.t()} | {:error, {evalex_error(), String.t()}}
+  def precompile_expression(expression) do
+    case EvalEx.Native.precompile_expression(expression) do
+      {:ok, resourace} ->
+        {:ok, EvalEx.PrecompiledExpression.wrap_resource(resourace)}
+
+      {:error, error} ->
+        {:error, error}
+    end
+  end
 end
