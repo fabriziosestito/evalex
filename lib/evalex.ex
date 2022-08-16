@@ -81,8 +81,8 @@ defmodule EvalEx do
           {:ok, EvalEx.PrecompiledExpression.t()} | {:error, {evalex_error(), String.t()}}
   def precompile_expression(expression) do
     case EvalEx.Native.precompile_expression(expression) do
-      {:ok, resourace} ->
-        {:ok, EvalEx.PrecompiledExpression.wrap_resource(resourace)}
+      {:ok, resource} ->
+        {:ok, EvalEx.PrecompiledExpression.wrap_resource(resource)}
 
       {:error, error} ->
         {:error, error}
