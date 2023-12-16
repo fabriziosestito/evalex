@@ -12,7 +12,7 @@ pub fn to_value<'a>(env: Env<'a>, term: &Term<'a>) -> Value {
             .decode::<i64>()
             .map(Value::Int)
             .expect("get_type() returned Integer but could not decode as integer."),
-        
+
         TermType::Float => term
             .decode::<f64>()
             .map(Value::Float)
