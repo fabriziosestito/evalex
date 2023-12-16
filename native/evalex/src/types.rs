@@ -8,7 +8,7 @@ pub fn to_value<'a>(env: Env<'a>, term: &Term<'a>) -> Value {
             .map(Value::String)
             .expect("get_type() returned Binary but could not decode as string."),
 
-        TermType::Number => term
+        TermType::Float => term
             .decode::<i64>()
             .map(Value::Int)
             .or_else(|_| term.decode::<f64>().map(Value::Float))
@@ -46,7 +46,8 @@ pub fn to_value<'a>(env: Env<'a>, term: &Term<'a>) -> Value {
             Value::from(converted_elems)
         }
 
-        TermType::EmptyList => Value::Tuple(vec![]),
+        TermType::Integer => unreachable!(),
+
         _ => Value::Empty,
     }
 }

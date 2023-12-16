@@ -61,7 +61,7 @@ pub fn to_error_tuple(env: Env, err: EvalexprError) -> Term {
             make_reason_tuple(env, atoms::expected_boolean(), err)
         }
         EvalexprError::ExpectedTuple { .. } => make_reason_tuple(env, atoms::expected_tuple(), err),
-        EvalexprError::ExpectedFixedLenTuple { .. } => {
+        EvalexprError::ExpectedFixedLengthTuple { .. } => {
             make_reason_tuple(env, atoms::exepcted_fixed_length_tuple(), err)
         }
         EvalexprError::ExpectedEmpty { .. } => make_reason_tuple(env, atoms::expected_empty(), err),
