@@ -8,15 +8,11 @@ pub fn to_value<'a>(env: Env<'a>, term: &Term<'a>) -> Value {
             .map(Value::String)
             .expect("get_type() returned Binary but could not decode as string."),
 
-        TermType::Integer => term
+        TermType::Float => term
             .decode::<i64>()
             .map(Value::Int)
-            .expect("get_type() returned Integer but could not decode as integer."),
-
-        TermType::Float => term
-            .decode::<f64>()
-            .map(Value::Float)
-            .expect("get_type() returned Float but could not decode as float."),
+            .or_else(|_| term.decode::<f64>().map(Value::Float))
+            .expect("get_type() returned Number but could not decode as integer or float."),
 
         TermType::Atom => term
             .decode()
@@ -49,6 +45,8 @@ pub fn to_value<'a>(env: Env<'a>, term: &Term<'a>) -> Value {
 
             Value::from(converted_elems)
         }
+
+        TermType::Integer => unreachable!(),
 
         _ => Value::Empty,
     }
